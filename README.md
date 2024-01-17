@@ -27,6 +27,10 @@ Contiene vistas clave como `analisis_consumo`, que es central para el proyecto, 
 ### Utilidades
 Funciones como `calcular_necesidades_nutricionales`, `analizar_ingesta_nutricional`, etc., que apoyan el análisis.
 
+## Deploy en Render
+El proyecto está desplegado en Render y puede ser accedido a través del siguiente enlace: 
+https://minicore-jgre.onrender.com
+
 ## Cómo Instalar y Ejecutar
 
 ```bash
