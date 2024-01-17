@@ -50,45 +50,8 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="{% url 'main_page' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                {% if user.is_superuser %}
-                <li class="nav-item ">
-                  <a class="nav-link" href="{% url 'lista_usuarios_inactivos' %}"> Administrar Usuarios</a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="{% url 'listar_nutrientes' %}"> Administrar Nutrientes</a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="{% url 'listar_todos_alimentos' %}"> Administrar Alimentos</a>
-                </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="{% url 'analisis-consumo' %}"> Analisis Grupos</a>
-                </li>
-                              <li class="nav-item ">
-                                  <a class="nav-link" href="{% url 'reporte_excesos' %}"> Analisis Exceso</a>
-                            </li>
-                {% endif %}
-                {% if not user.is_superuser %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'agregar_alimento' %}"> Agregar Alimento</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'listar_alimentos' %}"> Listar Alimentos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'registro_diario' %}"> Registro Diario</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'perfil_nutricional' %}"> Perfil Nutricional</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'analisis_nutricional' %}"> Análisis Nutricional</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'sugerencias_alimentos' %}"> Recomendaciones</a>
-                </li>
-                {% endif %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}"> Logout</a>
                 </li>
               </ul>
               <div class="user_option">
