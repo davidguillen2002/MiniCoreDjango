@@ -1,4 +1,4 @@
-# Proyecto de Análisis Nutricional basado en Rango de Fechas
+# Proyecto de Análisis Nutricional basado en Rango de Fechas (MINICORE)
 
 Este proyecto Django se enfoca en el análisis del consumo nutricional de grupos de edades basándose en un rango de fechas específico. Calcula el promedio de consumo de calorías, grasas, proteínas, carbohidratos y nutrientes, proporcionando una visión clara y precisa del comportamiento alimentario de distintos grupos etarios.
 
@@ -30,7 +30,7 @@ Funciones como `calcular_necesidades_nutricionales`, `analizar_ingesta_nutricion
 ## Cómo Instalar y Ejecutar
 
 ```bash
-git clone https://github.com/[usuario]/[repositorio].git
+git clone https://github.com/davidguillen2002/MiniCoreDjango.git
 cd [repositorio]
 # Instalar dependencias
 pip install -r requirements.txt
