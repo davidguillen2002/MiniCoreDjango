@@ -130,7 +130,6 @@ def vista_analisis(request):
 
 # Muestra la página principal de la aplicación (index.html). Es una vista simple que no realiza
 # ninguna operación más allá de renderizar la página.
-@login_required
 def main_page(request):
     return render(request, 'index.html')
 
@@ -138,7 +137,6 @@ def main_page(request):
 # Realiza y muestra un análisis nutricional del usuario basado en su perfil nutricional y registros diarios.
 # Calcula las necesidades nutricionales del usuario y compara su ingesta diaria con estas necesidades.
 # Si el usuario ha cumplido sus límites nutricionales para el día, muestra un mensaje de felicitación.
-@login_required
 def analisis_nutricional(request):
     perfil = get_object_or_404(PerfilNutricional, usuario=request.user)
     registros = RegistroDiario.objects.filter(usuario=request.user, fecha=date.today())
@@ -151,7 +149,6 @@ def analisis_nutricional(request):
     return render(request, 'base/analisis_nutricional.html', {'analisis': analisis})
 
 # Proporciona sugerencias nutricionales personalizadas a usuarios autenticados basándose en su perfil e ingesta diaria.
-@login_required
 def sugerencias_alimentos(request):
     # Obtener el perfil nutricional del usuario
     perfil = get_object_or_404(PerfilNutricional, usuario=request.user)
