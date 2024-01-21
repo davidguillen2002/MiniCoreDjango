@@ -1,13 +1,13 @@
-# Proyecto de Análisis Nutricional basado en Rango de Fechas (MINICORE)
+# Proyecto de Seguimiento Académico de Alumnos (MINICORE)
 
-Este proyecto Django se enfoca en el análisis del consumo nutricional de grupos de edades basándose en un rango de fechas específico. Calcula el promedio de consumo de calorías, grasas, proteínas, carbohidratos y nutrientes, proporcionando una visión clara y precisa del comportamiento alimentario de distintos grupos etarios.
+Este proyecto Django está diseñado para gestionar y analizar el rendimiento académico de los alumnos a lo largo de diferentes periodos de progreso. Permite calcular y visualizar las notas promedio de los alumnos en distintas fases del año académico, así como determinar las notas necesarias para alcanzar un objetivo de aprobación en fases futuras.
 
 ## Características Principales
 
-- **Filtrado por Rango de Fechas**: Permite seleccionar un rango de fechas específico para el análisis nutricional.
-- **Análisis por Grupo de Edad**: Clasifica los datos según grupos de edad, ofreciendo insights especializados.
-- **Cálculo de Promedios Nutricionales**: Calcula los promedios de consumo de calorías, grasas, proteínas, carbohidratos y nutrientes.
-- **Visualización de Datos**: Presenta los resultados de manera gráfica para una fácil interpretación.
+- **Seguimiento de Progreso Académico**: Calcula las notas promedio de los alumnos en diferentes periodos.
+- **Análisis por Alumno y Fecha**: Permite ver el rendimiento académico de cada alumno en rangos de fechas específicos.
+- **Cálculo de Notas Necesarias**: Determina las notas que los alumnos necesitan obtener en futuros periodos para lograr un objetivo de aprobación.
+- **Visualización de Datos**: Presenta los resultados de manera gráfica para facilitar la interpretación y el seguimiento.
 
 ## Tecnologías Utilizadas
 
@@ -19,23 +19,26 @@ Este proyecto Django se enfoca en el análisis del consumo nutricional de grupos
 ## Estructura del Proyecto
 
 ### Modelos
-Incluye modelos como `Alimento`, `PerfilNutricional`, `RegistroDiario`, `AlimentoNutriente`.
+
+Incluye modelos como `Alumno`, `Nota`.
 
 ### Vistas
-Contiene vistas clave como `analisis_consumo`, que es central para el proyecto, y otras como `main_page`, `analisis_nutricional`, `sugerencias_alimentos`.
 
-### Utilidades
-Funciones como `calcular_necesidades_nutricionales`, `analizar_ingesta_nutricional`, etc., que apoyan el análisis.
+Contiene vistas clave como `vista_todos_alumnos`, que es central para el análisis del rendimiento académico, además de `main_page`.
 
-## Deploy en Render
-El proyecto está desplegado en Render y puede ser accedido a través del siguiente enlace: 
-https://minicore-jgre.onrender.com
+### URLs
+
+Definición de las rutas URL para acceder a las distintas vistas y funcionalidades del sistema.
+
+### Administración
+
+Configuración del sitio de administración de Django para gestionar las entidades `Nota` y `Alumno`.
 
 ## Cómo Instalar y Ejecutar
 
 ```bash
 git clone https://github.com/davidguillen2002/MiniCoreDjango.git
-cd [repositorio]
+cd [directorio del repositorio]
 # Instalar dependencias
 pip install -r requirements.txt
 # Configurar y migrar la base de datos
