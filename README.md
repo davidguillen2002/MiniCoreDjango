@@ -37,7 +37,7 @@ Configuración del sitio de administración de Django para gestionar las entidad
 ## Cómo Instalar y Ejecutar
 
 ```bash
-git clone https://github.com/[tu-usuario]/StudentTracker.git
+git clone https://github.com/davidguillen2002/MiniCoreDjango.git
 cd [directorio del repositorio]
 # Instalar dependencias
 pip install -r requirements.txt
