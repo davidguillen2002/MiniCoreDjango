@@ -34,6 +34,10 @@ Definición de las rutas URL para acceder a las distintas vistas y funcionalidad
 
 Configuración del sitio de administración de Django para gestionar las entidades `Nota` y `Alumno`.
 
+## Deploy en Render
+El proyecto está desplegado en Render y puede ser accedido a través del siguiente enlace: 
+https://minicore-jgre.onrender.com
+
 ## Cómo Instalar y Ejecutar
 
 ```bash
