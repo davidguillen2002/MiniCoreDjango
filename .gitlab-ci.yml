@@ -15,7 +15,7 @@ cache:
     - .cache/pip
 
 before_script:
-  - apt-get update && apt-get install -y flake8 pylint curl
+  - apt-get update && apt-get install -y flake8 pylint curl npm
   - pip install --upgrade pip
   - pip install -r requirements.txt
   - python manage.py collectstatic --noinput
@@ -25,6 +25,8 @@ prebuild:
   script:
     - flake8 . --exclude=migrations,venv
     - pylint **/*.py
+    - npm install
+    - npm audit
   allow_failure: true
 
 build:
@@ -33,6 +35,7 @@ build:
     - python manage.py check
     - python manage.py makemigrations
     - python manage.py migrate
+    - npm run build
   artifacts:
     paths:
       - db.sqlite3
@@ -42,6 +45,7 @@ test:
   stage: test
   script:
     - pytest
+    - npm test
   coverage: '/TOTAL.*\s+(\d+%)$/'
 
 deploy:
