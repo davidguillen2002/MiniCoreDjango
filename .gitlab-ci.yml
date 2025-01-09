@@ -1,0 +1,54 @@
+image: python:3.9
+
+stages:
+  - prebuild
+  - build
+  - test
+  - deploy
+
+variables:
+  DJANGO_SETTINGS_MODULE: core.settings
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - apt-get update && apt-get install -y flake8 pylint curl
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+  - python manage.py collectstatic --noinput
+
+prebuild:
+  stage: prebuild
+  script:
+    - flake8 . --exclude=migrations,venv
+    - pylint **/*.py
+  allow_failure: true
+
+build:
+  stage: build
+  script:
+    - python manage.py check
+    - python manage.py makemigrations
+    - python manage.py migrate
+  artifacts:
+    paths:
+      - db.sqlite3
+      - static/
+
+test:
+  stage: test
+  script:
+    - pytest
+  coverage: '/TOTAL.*\s+(\d+%)$/'
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to production..."
+    - docker build -t my-django-app .
+    - docker run -d -p 8000:8000 my-django-app
+  only:
+    - main
